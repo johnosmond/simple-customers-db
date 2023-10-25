@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
 
             $table->string('customer_name');
-            $table->string('customer_phone');
-            $table->text('address');
-            $table->string('website');
+            $table->string('customer_phone')->nullable();
+            $table->text('address')->nullable();
+            $table->string('website')->nullable();
 
             $table->timestamps();
         });

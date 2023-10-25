@@ -32,5 +32,29 @@
                 {{ $slot }}
             </main>
         </div>
+        
+        <script>
+            const toggleButton = document.getElementById('darkModeToggle');
+            const currentTheme = localStorage.getItem('theme');
+        
+            // Set the initial theme based on local storage or default
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else if (currentTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            }
+        
+            // Toggle dark mode on button click
+            toggleButton.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        </script>
+        
     </body>
 </html>
